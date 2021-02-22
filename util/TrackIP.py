@@ -52,6 +52,9 @@ class TrackIP:
 
     def getCountry(self):
         return self.info['country']
+    
+    def getCountryCode(self):
+        return lower(self.info['countryCode'])
 
     def getRegion(self):
         return self.info['regionName']

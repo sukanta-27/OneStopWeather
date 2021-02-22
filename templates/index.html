@@ -4,4 +4,14 @@
     <h1>
         Location based Weather App
     </h1>
+    <p>
+        City: {{weather['name']}} <br>
+        Weather: {{weather['weather'][0]['main']}} <br>
+        Temp: {{weather['main']['temp']}}
+    </p>
+
+    <p>
+        {{weather}}
+    </p>
+
 {% endblock content %}
