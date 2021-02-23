@@ -9,7 +9,7 @@ class WeatherInfo:
         if country:
             self.country = country.title()
             self.countryCode = self.retrieveCountryCode()
-            print(self.countryCode)
+
         self.zip = zip
         self.units = units
     
