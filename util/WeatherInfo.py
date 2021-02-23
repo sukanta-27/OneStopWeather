@@ -10,6 +10,7 @@ class WeatherInfo:
         self.country = country
         self.zip = zip
         self.id = id
+        self.units = 'metric'
     
     def getWeatherByCity(self):
         '''
@@ -17,7 +18,7 @@ class WeatherInfo:
         '''
         if self.city:
             response = requests.get(
-                f"http://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={os.getenv('API_KEY')}")
+                f"http://api.openweathermap.org/data/2.5/weather?q={self.city}&units={self.units}&appid={os.getenv('API_KEY')}")
             if response.status_code == 200:
                 info = json.loads(response.text)
                 return info
