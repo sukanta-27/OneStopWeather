@@ -4,8 +4,13 @@
     <h1>
         Location based Weather App
     </h1>
-    <form method="POST">
-        <input type="text" placeholder="Enter IP address" class="search" name='searchItem'>
+    <form method="POST" class="form">
+        Search By:
+        <select name='modeOfSearch' class="dropdown">
+            <option value="IP">IP address</option>
+            <option value="City">City</option>                        
+        </select>
+        <input type="text" placeholder="Enter IP/City" class="search" name='searchItem'>
         <input type="submit" value="Search">
     </form>
     

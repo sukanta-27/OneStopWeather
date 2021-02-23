@@ -20,13 +20,15 @@ class TrackIP:
             self.ip = ip
             self.info = self.getInfo()
         else:
-            raise Exception("IP address is not valid")
+            raise Exception("IP Address is invalid")
     
     def isValidIP(self, ip):
         if not isinstance(ip, str):
             return False
-        
-        x = list(map(int, ip.split(".")))
+        try:
+            x = list(map(int, ip.split(".")))
+        except:
+            return False
 
         if len(x) != 4:
             return False
