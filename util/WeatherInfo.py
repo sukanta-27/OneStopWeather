@@ -4,14 +4,29 @@ import os
 
 class WeatherInfo:
     
-    def __init__(self, city=None, region=None, country=None, zip=None, id=None):
+    def __init__(self, city=None, country=None, zip=None, units='metric'):
         self.city = city
-        self.region = region
-        self.country = country
+        if country:
+            self.country = country.title()
+            self.countryCode = self.retrieveCountryCode()
+            print(self.countryCode)
         self.zip = zip
-        self.id = id
-        self.units = 'metric'
+        self.units = units
     
+    def retrieveCountryCode(self):
+        if not self.country:
+            return None
+        file = open("data\country_code.json", 'r')
+        codes = json.load(file)
+
+        for i in codes:
+            if i['Name'] == self.country:
+                file.close()
+                return i['Code']
+
+        file.close()
+        return None
+
     def getWeatherByCity(self):
         '''
             Returns weather data in JSON format
@@ -26,3 +41,15 @@ class WeatherInfo:
                 raise Exception("Could not retrieve the weather info")
         else:
             raise Exception("Please provide city name to get weather info")
+    
+    def getWeatherByZip(self):
+        if self.zip and self.countryCode:
+            response = requests.get(
+                f"http://api.openweathermap.org/data/2.5/weather?zip={self.zip},{self.countryCode}&units={self.units}&appid={os.getenv('API_KEY')}")
+            if response.status_code == 200:
+                info = json.loads(response.text)
+                return info
+            else:
+                raise Exception("Could not retrieve the weather info")
+        else:
+            raise Exception("Please provide Zip code and Country")            

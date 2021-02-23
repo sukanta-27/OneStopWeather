@@ -29,6 +29,14 @@ def index():
                 weather = WeatherInfo(city=request.form.get('searchItem')).getWeatherByCity()
             except Exception:
                 return redirect(url_for('index'))
+        elif mode == 'Zip':
+            try:
+                zip = request.form.get('searchItem')
+                country = request.form.get('country')
+
+                weather = WeatherInfo(zip=zip, country=country).getWeatherByZip()
+            except Exception:
+                return redirect(url_for('index'))
     else:
         # Show User's weather information
         visitor_city = TrackIP(visitor_ip).getCity()

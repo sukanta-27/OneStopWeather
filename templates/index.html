@@ -8,9 +8,12 @@
         Search By:
         <select name='modeOfSearch' class="dropdown">
             <option value="IP">IP address</option>
-            <option value="City">City</option>                        
+            <option value="City">City</option> 
+            <option value="Zip">Zip Code</option>                       
         </select>
-        <input type="text" placeholder="Enter IP/City" class="search" name='searchItem'>
+        <input type="text" placeholder="Enter IP/City" class="textField" name='searchItem', required='true'>
+        <br>
+        <input type="text" placeholder="Country/Country Code" class="textField" name='country'>
         <input type="submit" value="Search">
     </form>
     
