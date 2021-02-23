@@ -4,6 +4,12 @@
     <h1>
         Location based Weather App
     </h1>
+    <form method="POST">
+        <input type="text" placeholder="Enter IP address" class="search" name='searchItem'>
+        <input type="submit" value="Search">
+    </form>
+    
+
     <p>
         City: {{weather['name']}} <br>
         Weather: {{weather['weather'][0]['main']}} <br>
