@@ -44,5 +44,10 @@ def index():
 
     return render_template('index.html', weather=weather)
 
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    pass
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,13 @@
+.navbar {
+    position: relative;
+}
+
+#githubLink {
+    position: absolute;
+    left: 95%;
+}
+
+#linkedinLink {
+    position: absolute;
+    left: 92%;
+}
