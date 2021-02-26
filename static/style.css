@@ -1,3 +1,14 @@
+/* body {
+    background: linear-gradient(180deg, rgba(78, 185, 140, 0.64) 5.34%, rgba(18, 94, 183, 0.56) 100%);
+    width: auto;
+    height: 100vh;
+
+} */
+
+body {
+    position: relative;
+}
+
 .navbar {
     position: relative;
 }

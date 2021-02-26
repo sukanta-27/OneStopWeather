@@ -7,13 +7,21 @@ import os
 app = Flask(__name__)
 load_dotenv()
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def index():
     # As developing in localhost, ip will not fetch any address
     # So for testing purposes giving hardcoded random IP
     # visitor_ip = request.remote_addr
     visitor_ip = '125.23.44.12'
+    # Show User's weather information
+    visitor_city = TrackIP(visitor_ip).getCity()
+    weather = WeatherInfo(city=visitor_city).getWeatherByCity()
 
+    return render_template('index.html', weather=weather)
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
     if request.method == 'POST':
         mode = request.form.get("modeOfSearch")
 
@@ -37,17 +45,10 @@ def index():
                 weather = WeatherInfo(zip=zip, country=country).getWeatherByZip()
             except Exception:
                 return redirect(url_for('index'))
+
+        return render_template('index.html', weather=weather)
+
     else:
-        # Show User's weather information
-        visitor_city = TrackIP(visitor_ip).getCity()
-        weather = WeatherInfo(city=visitor_city).getWeatherByCity()
-
-    return render_template('index.html', weather=weather)
-
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    pass
-
+        return render_template('search.html')
 if __name__ == '__main__':
     app.run(debug=True)

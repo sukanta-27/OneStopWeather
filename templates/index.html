@@ -1,35 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1>
-        Location based Weather App
-    </h1>
-    <form method="POST" class="form">
-        <div class="form-group">
-            Search By:
-            <select name='modeOfSearch' class="dropdown">
-                <option value="IP">IP address</option>
-                <option value="City">City</option> 
-                <option value="Zip">Zip Code</option>                       
-            </select>
-            <input type="text" placeholder="Enter IP/City" class="textField form-control" name='searchItem', required='true'>
-            <br>
-            <input type="text" placeholder="Country/Country Code" class="textField form-control" name='country'>
-            <input type="submit" value="Search" class="btn btn-primary">
-        </div>
-
-    </form>
     
-
-    <p>
-        City: {{weather['name']}} <br>
-        Weather: {{weather['weather'][0]['main']}} <br>
-        Temp: {{weather['main']['temp']}}
-    </p>
-
-    <p>
-        {{weather}}
-    </p>
+    <div class="weatherResult">
+        <p>
+            City: {{weather['name']}} <br>
+            Weather: {{weather['weather'][0]['main']}} <br>
+            Temp: {{weather['main']['temp']}}
+        </p>
+    </div>
 
 {% endblock content %}
