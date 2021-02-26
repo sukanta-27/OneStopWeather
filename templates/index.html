@@ -3,11 +3,23 @@
 {% block content %}
     
     <div class="weatherResult">
-        <p>
-            City: {{weather['name']}} <br>
-            Weather: {{weather['weather'][0]['main']}} <br>
-            Temp: {{weather['main']['temp']}}
-        </p>
+        
+        <div class="city_name">
+            <p>
+                {{weather['name']}}
+            </p>
+        </div>
+        <div class="weatherMain">
+            <p>
+                {{weather['weather'][0]['main']}}
+            </p>
+        </div>
+        <div class="temp">
+            <p>
+                {{weather['main']['temp']}} <span>&#176;C</span>
+            </p>
+        </div>
+        
     </div>
 
 {% endblock content %}
