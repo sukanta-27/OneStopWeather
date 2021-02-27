@@ -64,18 +64,8 @@ ul li a {
     color: #fff !important;
 }
 
-#githubLink {
-    position: absolute;
-    left: 95%;
-}
-
 #githubLink a {
     text-decoration: none;
-}
-
-#linkedinLink {
-    position: absolute;
-    left: 89%;
 }
 
 #linkedinLink a {
