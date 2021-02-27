@@ -81,3 +81,8 @@ ul li a {
 select {
     margin-top: 4px;
 }
+
+#SearchByText {
+    font-size: 1.2rem;
+    color: #fff;
+}
