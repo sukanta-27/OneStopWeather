@@ -5,15 +5,31 @@
         <div class="form_container">
             <form method="POST" class="form">
                 <div class="form-group">
-                    <select name='modeOfSearch' class="dropdown">
+                    <span>
+                        <i class="fa fa-search"></i>&nbsp; Search By:
+                    </span>
+                    <select name='modeOfSearch' class="form-control">
                         <option value="IP">IP address</option>
-                        <option value="City">City</option> 
+                        <option value="City" selected>City</option> 
                         <option value="Zip">Zip Code</option>                       
                     </select>
+                </div>
+                <div class="form-group">
                     <input type="text" placeholder="Enter IP/City" class="textField form-control" name='searchItem', required='true'>
+                </div>
+                <div class="form-group">
                     <input type="text" placeholder="Country/Country Code" class="textField form-control" name='country'>
-                    <input type="submit" value="Search" class="btn btn-primary searchButton">
-                </div>        
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-end">
+                            <input type="submit" value="Search" class="btn btn-success searchButton">
+                        </div>
+                        <div class="col-6 d-flex justify-content-start">
+                            <input type="reset" name="Reset" class="btn btn-danger">
+                        </div>
+                    </div>
+                </div>    
             </form> 
         </div> 
     </div>

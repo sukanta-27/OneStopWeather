@@ -42,7 +42,7 @@ body {
 
 .temp {
     color: #fff;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 900;
     text-shadow: 2px 10px rgba(0,0,0,0.3);
 }
@@ -82,9 +82,18 @@ ul li a {
     text-decoration: none;
 }
 
+.form_container {
+    width: 45%;
+    margin-top: 16%;
+    margin-left: 28%;
+}
 
+select {
+    margin-top: 4px;
+}
 
-.textField {
+/* .textField {
+    margin-left: 20px;
     width: 70%;
     border: 1px solid;
     margin: 0px 0px 10px 10px;
@@ -93,7 +102,7 @@ ul li a {
 }
 
 select {
-    width: 70%;
+    width: 52%;
     border: 1px solid;
     margin: 10px 10px 10px 10px;
     background-color: #f1f1f1;
@@ -101,9 +110,4 @@ select {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-
-.searchButton {
-    margin-left: 20%;
-    margin-bottom: 10px;
-    width: 30%;
-}
+ */
