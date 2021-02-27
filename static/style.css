@@ -15,12 +15,6 @@ body {
 }
 
 .weatherResult {
-    /* flex: 1 1 100%;
-    padding: 25px 25px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; */
     display: flex;
     flex-direction: column;
     align-items: center;
