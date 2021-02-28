@@ -9,9 +9,10 @@ load_dotenv()
 
 @app.route("/", methods=['GET'])
 def index():
-    # As developing in localhost, ip will not fetch any address
-    # So for testing purposes giving hardcoded random IP
+
+    # Get visitor IP
     visitor_ip = request.remote_addr
+
     if not visitor_ip or visitor_ip == '127.0.0.1':
         return redirect(url_for('search'))
     else:
