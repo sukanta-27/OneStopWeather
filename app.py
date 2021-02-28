@@ -11,13 +11,17 @@ load_dotenv()
 def index():
     # As developing in localhost, ip will not fetch any address
     # So for testing purposes giving hardcoded random IP
-    # visitor_ip = request.remote_addr
-    visitor_ip = '125.23.44.12'
-    # Show User's weather information
-    visitor_city = TrackIP(visitor_ip).getCity()
-    weather = WeatherInfo(city=visitor_city).getWeatherByCity()
-
-    return render_template('index.html', weather=weather)
+    visitor_ip = request.remote_addr
+    if not visitor_ip or visitor_ip == '127.0.0.1':
+        return redirect(url_for('search'))
+    else:
+        # Show User's weather information
+        visitor_city = TrackIP(visitor_ip).getCity()
+        weather = WeatherInfo(city=visitor_city).getWeatherByCity()
+        if weather:
+            return render_template('index.html', weather=weather)
+        else:
+            return redirect(url_for('search'))
 
 
 @app.route('/search', methods=['GET', 'POST'])
