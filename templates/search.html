@@ -12,7 +12,7 @@
                             </span>
                         </div>
                         <div class="col col-8 col-sm-6 col-md-7 col-xs-6 col-lg-8">
-                            <select name='modeOfSearch' class="form-control">
+                            <select name='modeOfSearch' class="form-control" id="modeOfSearch">
                                 <option value="IP">IP address</option>
                                 <option value="City" selected>City</option> 
                                 <option value="Zip">Zip Code</option>                       
@@ -24,7 +24,8 @@
                     <input type="text" placeholder="Enter IP/City" class="textField form-control" name='searchItem', required='true'>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Country/Country Code" class="textField form-control" name='country'>
+                    <input type="text" placeholder="Country/Country Code" 
+                        class="textField form-control" name='country' id="country">
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -39,4 +40,28 @@
             </form> 
         </div> 
     </div>
+
+    <script>
+        function showCountryForZip() {
+            var mode = $("#modeOfSearch").find(":selected").val();
+            if(mode === 'Zip') {
+                $("#country").show(1000);
+                $("#country").prop("required", true);
+            } else {
+                $("#country").hide(1000);
+                $("#country").removeAttr('required');
+            }
+        }
+
+        $(document).ready(function(){
+
+            showCountryForZip();
+
+            // If mode of Search is changed from anything to Zip
+            // For that add an click eventListner to select
+            $("#modeOfSearch").click(function(){
+                showCountryForZip();
+            });
+        });
+    </script>
 {% endblock content %}
