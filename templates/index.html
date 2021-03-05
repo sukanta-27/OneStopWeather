@@ -6,20 +6,26 @@
         <img src="/static/assets/cloudy.svg" alt="" height="50px" width="auto">
         <div class="city_name">
             <p>
-                {{weather['name']}}
+                {{weather.city}}
             </p>
         </div>
         <div class="weatherMain">
             <p>
-                {{weather['weather'][0]['main']}}
+                {{weather.days[0].main}}
             </p>
         </div>
         <div class="temp">
             <p>
-                {{weather['main']['temp']}} <span>&#176;C</span>
+                {{weather.days[0].temperature}} <span>&#176;C</span>
             </p>
         </div>
         
+    </div>
+
+    <div style="color: white;">
+        <p>
+            {{weather}}
+        </p>
     </div>
 
 {% endblock content %}
