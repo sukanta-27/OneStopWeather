@@ -57,6 +57,10 @@ ul li a {
 /* ################################### Search Page ################################# */
 /* ################################################################################# */
 
+.container {
+    margin: 8% 10% auto 10% !important;
+}
+
 .form_container {
     background-color: rgba(0,0,0,0.2);
     padding-top: 10%;
@@ -96,6 +100,7 @@ select {
 
 .div_wrapper {
     display: inline-block;
+    border-radius: 20px;
     box-shadow: 0px 0px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s, box-shadow 0.5s;
 }
@@ -108,12 +113,14 @@ select {
 .upper_half {
     display: inline-block;
     width: 100%;
+    border-radius: 20px 20px 0 0;
     background: linear-gradient(to bottom, #c9d6ff -0.89%, #e2e2e2 96.2%);
 }
 
 .lower_half {
     display: inline-block;
     width: 100%;
+    border-radius: 0 0 20px 20px;
     background: linear-gradient(89.8deg, #373b44 1.03%, #4286f4 98.13%);
 }
 
