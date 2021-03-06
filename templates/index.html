@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
-{% from 'macros.html' import weather_card %}
+<!-- {% from 'macros.html' import weather_card %} -->
 
 {% block content %}
     
-    <div class="weatherResult card">
+    <div class="row mp-0">
+        <div class="col col-12 mp-0">
+            {{weather_card(weather, 0)}}
+        </div>
+    </div>
+
+    <div class="row mp-0">
+        {% for i in range(1, 5) %}
+            <div class="col col-6 mp-0">
+                {{weather_card(weather, i)}}
+            </div>
+        {% endfor %}
+    </div>
+    
+
+{% endblock content %}
+    <!-- <div class="weatherResult card"> -->
         <!-- <img src="http://openweathermap.org/img/wn/{{weather.days[0].icon}}@2x.png" alt="" height="50px" width="auto">
         <div class="city_name">
             <p>
@@ -20,8 +36,7 @@
                 {{weather.days[0].temperature}} <span>&#176;C</span>
             </p>
         </div> -->
-        
-        {{weather_card(weather, 0)}}
-    </div>
 
-{% endblock content %}
+
+        
+    <!-- </div> -->
