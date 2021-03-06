@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import weather_card %}
 
 {% block content %}
     
     <div class="weatherResult card">
-        <img src="/static/assets/cloudy.svg" alt="" height="50px" width="auto">
+        <!-- <img src="http://openweathermap.org/img/wn/{{weather.days[0].icon}}@2x.png" alt="" height="50px" width="auto">
         <div class="city_name">
             <p>
                 {{weather.city}}
@@ -18,8 +19,9 @@
             <p>
                 {{weather.days[0].temperature}} <span>&#176;C</span>
             </p>
-        </div>
+        </div> -->
         
+        {{weather_card(weather, 0)}}
     </div>
 
 {% endblock content %}

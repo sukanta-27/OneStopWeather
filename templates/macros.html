@@ -1,0 +1,68 @@
+{% macro weather_card(weatherData, dayNo) %}
+    {% set data = weatherData.days[dayNo] %}
+
+    <div class="div_wrapper">
+        <!-- Upper half of the card -->
+        <!-- Shows location data and temp -->
+        <div class="upper_half">
+            <div class="row resultHeader">
+                <div class="icon col col-6">
+                    <img src="http://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="">
+                </div>
+                <div class="generalInfo col col-6">
+                    <ul class="gI generalInfoList">
+                        <li>{{weatherData.city}}</li>
+                        <li>{{weatherData.country}}</li>
+                        <li>{{data.date}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row resultMain">
+                <p>{{data.main}}</p>
+            </div>
+            <div class="row resultTemp">
+                <p>{{data.temperature}}&#176;C</p>
+            </div>
+        </div>
+        
+        <!-- Lower half of the card -->
+        <!-- Shows additional information -->
+        <div class="lower_half">
+            <div class="row extra">
+                <div class="col col-6">
+                    <p class="extraInfo">
+                        {{data.feels_like}}&#176;C
+                    </p>
+                    <p class="extraInfoSubHeading">
+                        Feels like
+                    </p>
+                </div>
+                <div class="col col-6">
+                    <p class="extraInfo">
+                        {{data.wind}}m/s
+                    </p>
+                    <p class="extraInfoSubHeading">
+                        Wind
+                    </p>
+                </div>
+            </div>
+            <div class="row extra">
+                <div class="col col-6">
+                    <p class="extraInfo">
+                        {{data.humidity}}%
+                    </p>
+                    <p class="extraInfoSubHeading">
+                        Humidity
+                    </p>
+                </div>
+                <div class="col col-6">
+                    <p class="extraInfo">
+                        {{data.clouds}}%
+                    </p>
+                    <p class="extraInfoSubHeading">Clouds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

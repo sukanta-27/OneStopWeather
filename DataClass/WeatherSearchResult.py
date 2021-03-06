@@ -19,6 +19,7 @@ class WeatherOfTheDay:
         self.humidity = daySpecificData['main']['humidity']
         self.feels_like = daySpecificData['main']['feels_like']
         self.wind = daySpecificData['wind']['speed']
+        self.clouds = daySpecificData['clouds']['all']
 
 
 class Weather:
