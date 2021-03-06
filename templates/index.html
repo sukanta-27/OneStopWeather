@@ -3,40 +3,8 @@
 
 {% block content %}
     
-    <div class="row mp-0">
-        <div class="col col-12 mp-0">
-            {{weather_card(weather, 0)}}
-        </div>
-    </div>
-
-    <div class="row mp-0">
-        {% for i in range(1, 5) %}
-            <div class="col col-6 mp-0">
-                {{weather_card(weather, i)}}
-            </div>
-        {% endfor %}
+    <div class="currentWeatherCard">
+        {{weather_card(weather, 0)}}
     </div>
     
-
 {% endblock content %}
-    <!-- <div class="weatherResult card"> -->
-        <!-- <img src="http://openweathermap.org/img/wn/{{weather.days[0].icon}}@2x.png" alt="" height="50px" width="auto">
-        <div class="city_name">
-            <p>
-                {{weather.city}}
-            </p>
-        </div>
-        <div class="weatherMain">
-            <p>
-                {{weather.days[0].main}}
-            </p>
-        </div>
-        <div class="temp">
-            <p>
-                {{weather.days[0].temperature}} <span>&#176;C</span>
-            </p>
-        </div> -->
-
-
-        
-    <!-- </div> -->
