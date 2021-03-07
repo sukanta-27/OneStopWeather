@@ -11,18 +11,18 @@ load_dotenv()
 def index():
 
     # Get visitor IP
-    visitor_ip = request.remote_addr
+    # visitor_ip = request.remote_addr
 
-    if not visitor_ip or visitor_ip == '127.0.0.1':
-        return redirect(url_for('search'))
-    else:
-        # Show User's weather information
-        visitor_city = TrackIP(visitor_ip).getCity()
-        weather = WeatherInfo(city=visitor_city).getWeatherByCity()
-        if weather:
-            return render_template('index.html', weather=weather)
-        else:
-            return redirect(url_for('search'))
+    # if not visitor_ip or visitor_ip == '127.0.0.1':
+    #     return redirect(url_for('search'))
+    # else:
+    #     # Show User's weather information
+    #     visitor_city = TrackIP(visitor_ip).getCity()
+    #     weather = WeatherInfo(city=visitor_city).getWeatherByCity()
+    #     if weather:
+    #         return render_template('index.html', weather=weather)
+    #     else:
+    return redirect(url_for('search'))
 
 
 @app.route('/search', methods=['GET', 'POST'])
