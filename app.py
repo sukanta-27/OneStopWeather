@@ -50,7 +50,7 @@ def search():
                 weather = WeatherInfo(zip=zip, country=country).getWeatherByZip()
             except Exception:
                 return redirect(url_for('index'))
-
+        print("The Weather report: {}".format(weather))
         return render_template('index.html', weather=weather)
 
     else:
