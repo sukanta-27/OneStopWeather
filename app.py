@@ -8,6 +8,7 @@ import logging
 app = Flask(__name__)
 load_dotenv()
 
+logging.basicConfig(level=logging.INFO)
 @app.route("/", methods=['GET'])
 def index():
 

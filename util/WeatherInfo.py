@@ -34,6 +34,7 @@ class WeatherInfo:
         if self.city:
             response = requests.get(
                 f"http://api.openweathermap.org/data/2.5/forecast?q={self.city}&units={self.units}&appid={os.getenv('API_KEY')}")
+            logging.info("Response status code: "+str(response.status_code))
             if response.status_code == 200:
                 info = json.loads(response.text)
                 weatherData = Weather(info)
