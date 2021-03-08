@@ -1,9 +1,12 @@
 import json
-
+import pathlib
+import logging
 class Country:
+    
 
     def retrieveCountryCode(countryName):
-        file = open("data\country_code.json", 'r')
+        filePath = pathlib.Path.joinpath(pathlib.Path.cwd(), "data", "country_code.json")
+        file = open(filePath, 'r')
         countryData = json.load(file)
         countryCode = ''
         for i in countryData:
@@ -14,7 +17,8 @@ class Country:
         return countryCode
 
     def retrieveCountryName(countryCode):
-        file = open("data\country_code.json", 'r')
+        filePath = pathlib.Path.joinpath(pathlib.Path.cwd(), "data", "country_code.json")
+        file = open(filePath, 'r')
         countryData = json.load(file)
         countryName = ''
         for i in countryData:
