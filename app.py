@@ -3,6 +3,7 @@ from util.TrackIP import TrackIP
 from util.WeatherInfo import WeatherInfo
 from dotenv import load_dotenv
 import os
+import logging
 
 app = Flask(__name__)
 load_dotenv()
@@ -36,11 +37,13 @@ def search():
                 tracked_ip = TrackIP(request_ip)
                 weather = WeatherInfo(city=tracked_ip.getCity()).getWeatherByCity()
             except Exception:
+                logging.error("There was an error in retrieving weather reprot using IP")
                 return redirect(url_for('index'))
         elif mode == 'City':
             try:
                 weather = WeatherInfo(city=request.form.get('searchItem')).getWeatherByCity()
             except Exception:
+                logging.error("There was an error in retrieving weather reprot using City")
                 return redirect(url_for('index'))
         elif mode == 'Zip':
             try:
@@ -49,12 +52,13 @@ def search():
 
                 weather = WeatherInfo(zip=zip, country=country).getWeatherByZip()
             except Exception:
+                logging.error("There was an error in retrieving weather reprot using Zip code")
                 return redirect(url_for('index'))
-        print("The Weather report: {}".format(weather))
+
         return render_template('index.html', weather=weather)
 
     else:
         return render_template('search.html')
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0')

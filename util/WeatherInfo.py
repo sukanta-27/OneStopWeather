@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import logging
 from util.Helper import Country
 from DataClass.WeatherSearchResult import Weather
 
@@ -23,7 +24,8 @@ class WeatherInfo:
         if os.getenv('API_KEY'):
             return True
         else:
-            raise "API key not found in .env file"
+            logging.error("API KEY not found")
+            raise Exception("API key not found in .env file")
 
     def getWeatherByCity(self):
         '''
@@ -37,6 +39,7 @@ class WeatherInfo:
                 weatherData = Weather(info)
                 return weatherData
             else:
+                logging.error("Could not retrieve the weather info")
                 raise Exception("Could not retrieve the weather info")
         else:
             raise Exception("Please provide city name to get weather info")
@@ -50,6 +53,7 @@ class WeatherInfo:
                 weatherData = Weather(info)
                 return weatherData
             else:
+                logging.error("Could not retrieve the weather info")
                 raise Exception("Could not retrieve the weather info")
         else:
             raise Exception("Please provide Zip code and Country")            
