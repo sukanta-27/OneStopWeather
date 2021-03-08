@@ -38,13 +38,13 @@ def search():
                 tracked_ip = TrackIP(request_ip)
                 weather = WeatherInfo(city=tracked_ip.getCity()).getWeatherByCity()
             except Exception:
-                logging.error("There was an error in retrieving weather reprot using IP")
+                logging.exception("There was an error in retrieving weather reprot using IP")
                 return redirect(url_for('index'))
         elif mode == 'City':
             try:
                 weather = WeatherInfo(city=request.form.get('searchItem')).getWeatherByCity()
             except Exception:
-                logging.error("There was an error in retrieving weather reprot using City")
+                logging.exception("There was an error in retrieving weather reprot using City")
                 return redirect(url_for('index'))
         elif mode == 'Zip':
             try:
@@ -53,7 +53,7 @@ def search():
 
                 weather = WeatherInfo(zip=zip, country=country).getWeatherByZip()
             except Exception:
-                logging.error("There was an error in retrieving weather reprot using Zip code")
+                logging.exception("There was an error in retrieving weather reprot using Zip code")
                 return redirect(url_for('index'))
 
         return render_template('index.html', weather=weather)
